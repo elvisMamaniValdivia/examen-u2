@@ -3,7 +3,7 @@
 - **Estudiante:** 2020068763 · Mamani Valdivia Elvis
 - **Docente:** Dr. Oscar Juan Jimenez Flores
 - **Tipo de Examen Asignado:** **TIPO 4**
-- **Repositorio:** `examen-u2`
+- **Repositorio GitHub:** [https://github.com/elvisMamaniValdivia/examen-u2](https://github.com/elvisMamaniValdivia/examen-u2)
 
 ### Historia de Usuario
 > *«Como usuario de la app, quiero consultar mis datos sin conexión, sin que nadie pueda leerlos si copia los archivos de la app, los saca de un respaldo o mira la pantalla de aplicaciones recientes, y poder borrarlos del teléfono cuando quiera.»*
