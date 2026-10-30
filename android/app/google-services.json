@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "22495951672",
+    "project_id": "g03-sm2-promedioapp",
+    "storage_bucket": "g03-sm2-promedioapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22495951672:android:39873ceac041b1d2735fcd",
+        "android_client_info": {
+          "package_name": "com.example.proyecto_moviles2_grupo03"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC3fgqGUZd5iR9PgsNeYBAVqVikmagv4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

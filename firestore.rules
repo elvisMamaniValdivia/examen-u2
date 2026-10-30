@@ -1,0 +1,23 @@
+rules_version = '2';
+
+// Reglas de Firestore de Pondera (PromedioApp).
+// Toda la informacion de un estudiante vive bajo usuarios/{uid}:
+// calculos (H07), ciclos (H10), cursos (H11) y, dentro de cada curso,
+// unidades (H12), tiposEvaluacion y notas (H13).
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Cada usuario solo puede leer y escribir sus propios datos, y solo si
+    // verifico su correo (la app tampoco guarda nada antes de verificarlo).
+    match /usuarios/{uid}/{document=**} {
+      allow read, write: if request.auth != null
+                         && request.auth.uid == uid
+                         && request.auth.token.email_verified == true;
+    }
+
+    // Todo lo demas queda cerrado.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
