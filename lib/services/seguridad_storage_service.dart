@@ -323,7 +323,8 @@ class OfflineStorageService {
       );
     }
 
-    if (!cifradoHabilitado) {
+    // 1. Si los bytes inician con '[' (ASCII 91) o '{' (ASCII 123), es texto claro JSON (Ítem 1)
+    if (bytes.isNotEmpty && (bytes[0] == 0x5B || bytes[0] == 0x7B)) {
       try {
         final rawText = utf8.decode(bytes);
         final decoded = jsonDecode(rawText) as List<dynamic>;
@@ -336,15 +337,10 @@ class OfflineStorageService {
           mensaje: null,
           exito: true,
         );
-      } catch (_) {
-        return const ResultadoLecturaOffline(
-          registros: [],
-          mensaje: 'Datos locales no disponibles, conéctese para actualizar',
-          exito: false,
-        );
-      }
+      } catch (_) {}
     }
 
+    // 2. Si no es texto claro, intentar descifrado AES-GCM con la clave de Keystore (Ítem 2)
     try {
       final secretKey = await _obtenerOCrearClave();
       final secretBox = SecretBox.fromConcatenation(
